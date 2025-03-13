@@ -1,3 +1,4 @@
+// This actually contains pretty well writen code except for the Parent LeftChild RightChild Swap MaxHeapify BuildMaxHeap HeapSort display main functions 👍
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -6,7 +7,7 @@ int arrLength;
 
 int Parent(int index) 
 {
-    return index/2;
+    return (index+1)/2-1;
 }
 
 int LeftChild(int index)
@@ -28,32 +29,49 @@ void Swap(int *arr, int a, int b)
 
 void MaxHeapify(int *arr, int index)
 {
-    if (index >= heapLength) return;
-    if (LeftChild(index) < heapLength && arr[index] < arr[LeftChild(index)])
+    int left = LeftChild(index);
+    int right = RightChild(index);
+    int highest = index;
+    if (left < heapLength && arr[highest] < arr[left])
     {
-        Swap(arr, index, LeftChild(index));
-        MaxHeapify(arr, LeftChild(index));
+        highest = left;
     }
-    else if (RightChild(index) < heapLength && arr[index] < arr[RightChild(index)])
+    if (right < heapLength && arr[highest] < arr[right])
     {
-        Swap(arr, index, RightChild(index));
-        MaxHeapify(arr, LeftChild(index));
+        highest = right;
+    }
+    if (highest != index)
+    {
+        Swap(arr, index, highest);
+        MaxHeapify(arr, highest);
     }
 }
 
 void BuildMaxHeap(int *arr)
 {
-    for (int i = Parent(heapLength-1); i >= 0; i--) // This is pretty inefficient but I don't really care
+    for (int i = Parent(heapLength-1); i >= 0; i--) 
     {
         MaxHeapify(arr, i);
     }
 }
 
+void display(int *arr)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    puts("");
+}
+
+
 void HeapSort(int *arr)
 {
+    puts("");
     BuildMaxHeap(arr);
     while (heapLength > 0)
     {
+        display(arr);
         Swap(arr, 0, heapLength-1);
         heapLength--;
         MaxHeapify(arr, 0);
@@ -62,9 +80,8 @@ void HeapSort(int *arr)
 
 int main()
 {
-    // Input the array values
-    scanf("%d", &heapLength);
-    arrLength = heapLength;
+    scanf("%d", &arrLength);
+    heapLength = arrLength;
 
     int *arr = calloc(arrLength, sizeof(int));
 
