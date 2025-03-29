@@ -1,9 +1,11 @@
 {
     "files.associations": {
+        "*.asm": "asm-intel-x86-generic",
         "iostream": "cpp",
         "chrono": "cpp",
         "ranges": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "linkedlist.h": "c"
     },
     "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace"
 }
