@@ -1,1 +1,0 @@
-{"name":"Local: B07","url":"/home/sirat/Code/LearningC/Ovenbreak/B07.cpp","tests":[{"id":1751170924423,"input":"21 5","output":"4"},{"id":1751170930622,"input":"27 6","output":"6"},{"id":1751173224188,"input":"27 9","output":"9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/sirat/Code/LearningC/Ovenbreak/B07.cpp","group":"local","local":true}

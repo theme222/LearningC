@@ -1,6 +1,5 @@
 .vscode/
 
-
 # Local History for Visual Studio Code
 .history/
 
@@ -8,3 +7,7 @@
 *.vsix
 
 .zed/
+
+*/.cph/
+
+.clangd
