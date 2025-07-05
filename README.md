@@ -1,3 +1,3 @@
 # LearningC
-> A project to practice learning C and algorithms
+> A project to practice learning C / C++ and algorithms
 
