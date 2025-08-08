@@ -40,3 +40,4 @@ int main()
     std::cin >> day >> month >> year;
     std::cout << GetDaysSinceStartYear(day, month, TotalDaysAYear(year)) << std::endl;
 }
+// I just used the functions I made in biorhythm
