@@ -3,7 +3,6 @@
 #include <cstdint>
 #include <vector>
 
-
 uint32_t values[150000][20];
 int main()
 {
