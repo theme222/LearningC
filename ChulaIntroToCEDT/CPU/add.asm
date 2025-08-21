@@ -1,0 +1,10 @@
+LOAD r0, 0xF0
+LOAD r1, 0xF1
+LOAD r2, 0xF2
+LOADI r3, 0x01
+ADD r4, r0, r3
+ADD r5, r4, r1
+ADD r6, r5, r2
+ADD r7, r6, r6
+STORE r7, 0xF3
+HALT
