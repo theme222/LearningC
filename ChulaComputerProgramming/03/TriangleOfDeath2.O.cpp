@@ -23,7 +23,7 @@ int main()
         std::cout << std::string(".") * (startCount)
             << "*"
             << std::string(".") * middle
-            <<"*\n";
+            << "*\n";
         startCount--;
         middle += 2;
     }
