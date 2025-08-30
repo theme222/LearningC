@@ -1,13 +1,11 @@
-#include <stdio.h>
+#include <iostream>
 
 int main() {
-    int a;
-    scanf("%d",&a);
-    int n = a;
-    while (n--)
-        printf("%d ", n);
-    puts("");
-    n = a;
-    while (--n)
-        printf("%d ", n);
+    int a = 5;
+    int n = 2;
+    bool c = false;
+
+    if (c = n == (a = 2)) puts("bruh");
+    std::cout << c;
+
 }
