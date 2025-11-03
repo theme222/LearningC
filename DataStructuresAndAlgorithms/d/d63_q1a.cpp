@@ -3,8 +3,11 @@
 using namespace std;
 
 void multiple_add(vector<int> &v, int value, int position, int count) {
-    for (int i = position; i < position + count && i < v.size(); i++)
+    int originalSize = v.size();
+    v.resize(v.size() + count, value);
+    for (int i = originalSize-1; i >= position; i--)
     {
+        v[i+count] = v[i];
         v[i] = value;
     }
 }
