@@ -37,8 +37,8 @@ int main()
         ll min = input - k;
         ll max = input + k;
 
-        auto minIter = std::lower_bound(numbers.begin(), numbers.end(), min);
-        auto maxIter = std::upper_bound(numbers.begin(), numbers.end(), max);
+        std::vector<ll>::iterator minIter = std::lower_bound(numbers.begin(), numbers.end(), min);
+        std::vector<ll>::iterator maxIter = std::upper_bound(numbers.begin(), numbers.end(), max);
 
         std::cout << maxIter - minIter;
         isFirst = false;
