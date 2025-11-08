@@ -23,4 +23,7 @@ int main() {
     cout << "After call multiple_add" << endl << "Size = " << v.size() << endl;
     for (auto &x : v) cout << x << " ";
     cout << endl;
+
+    int *test1 = new int[20];
+    int *test2 = new int[20]();
 }
