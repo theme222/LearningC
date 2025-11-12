@@ -4,7 +4,7 @@
 
 typedef std::tuple<int, std::list<int>::iterator, std::list<int>::iterator> tupiII; // size
 
-tupiII getChainSize(std::list<int>::iterator pos)
+tupiII getChainSize(std::list<int>::iterator pos, bool isFirst)
 {
     int size = 1;
     int val = *pos;
@@ -13,7 +13,7 @@ tupiII getChainSize(std::list<int>::iterator pos)
     auto lpos = --pos; ++pos;
     auto rpos= ++pos; --pos;
     
-    if (*lpos != val) return {0, lpos, rpos};
+    if (*lpos != val && !isFirst) return {0, lpos, rpos};
     
     while (*lpos == val)
     {
@@ -54,14 +54,14 @@ int main()
     while (K--) pos++;
     
     pos = balls.insert(pos, V); // set it to the new pos
-    tupiII chain = getChainSize(pos);
+    tupiII chain = getChainSize(pos, true);
     
     while (std::get<0>(chain) >= 3)
     {
         // std::cout << std::get<0>(chain) << ' '<< *std::get<1>(chain) << ' '<< *std::get<2>(chain) << std::endl;
         pos = balls.erase(std::get<1>(chain), std::get<2>(chain));
         if (balls.size() < 3) break;
-        chain = getChainSize(pos);
+        chain = getChainSize(pos, true);
     }
     
     for (auto i = balls.begin(); i != balls.end(); i++)
