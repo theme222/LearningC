@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 int n, m;
+std::map<int, int> constraint;
 
 void permute(int length, std::vector<int>& vec, std::vector<bool> &used)
 {
@@ -9,8 +10,8 @@ void permute(int length, std::vector<int>& vec, std::vector<bool> &used)
         bool isFirst = true;
         for (auto a: vec)
         {
+            if (!isFirst) std::cout << ' ';
             std::cout << a;
-            if (isFirst) std::cout << ' ';
             isFirst = false;
         }
         std::cout << '\n';
@@ -20,6 +21,7 @@ void permute(int length, std::vector<int>& vec, std::vector<bool> &used)
         for (int i = 0; i < n; i++)
         {
             if (used[i]) continue;
+            if (constraint.count(i) && !used[constraint[i]]) continue;
             used[i] = true;
             vec[length] = i;
             permute(length+1, vec, used);
@@ -36,7 +38,9 @@ int main()
     
     while (m--)
     {
-        
+        int before, after;
+        std::cin >> before >> after;
+        constraint[after] = before;
     }
     
     std::vector<int> vec(n, -1);
